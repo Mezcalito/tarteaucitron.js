@@ -749,15 +749,14 @@ var tarteaucitron = {
             isDenied = (cookie.indexOf(service.key + '=false') >= 0),
             isAllowed = ((cookie.indexOf(service.key + '=true') >= 0) || (!service.needConsent && cookie.indexOf(service.key + '=false') < 0)),
             isResponded = (cookie.indexOf(service.key + '=false') >= 0 || cookie.indexOf(service.key + '=true') >= 0),
-            isDNTRequested = (navigator.doNotTrack === "1" || navigator.doNotTrack === "yes" || navigator.msDoNotTrack === "1" || window.doNotTrack === "1"),
-            currentStatus = (isAllowed) ? tarteaucitron.lang.allowed : tarteaucitron.lang.disallowed;
+            isDNTRequested = (navigator.doNotTrack === "1" || navigator.doNotTrack === "yes" || navigator.msDoNotTrack === "1" || window.doNotTrack === "1");
 
         if (tarteaucitron.added[service.key] !== true) {
             tarteaucitron.added[service.key] = true;
 
             html += '<li id="' + service.key + 'Line" class="tarteaucitronLine">';
             html += '   <div class="tarteaucitronName">';
-            html += '       <span class="tarteaucitronH3" role="heading" aria-level="3">' + service.name + ' (<span id="tacCurrentStatus' + service.key + '">'+currentStatus+'</span>)</span>';
+            html += '       <span class="tarteaucitronH3" role="heading" aria-level="3">' + service.name + ' </span>';
             html += '       <span id="tacCL' + service.key + '" class="tarteaucitronListCookies"></span><br/>';
 
             if (tarteaucitron.parameters.moreInfoLink == true) {
@@ -960,12 +959,7 @@ var tarteaucitron = {
                         if (typeof tarteaucitronMagic === 'undefined' || tarteaucitronMagic.indexOf("_" + key + "_") < 0) { tarteaucitron.services[key].js(); }
                         tarteaucitron.sendEvent(key + '_loaded');
                     }
-                    var itemStatusElem = document.getElementById('tacCurrentStatus'+key);
-                    if(status == true){
-                        itemStatusElem.innerHTML = tarteaucitron.lang.allowed;
-                    }else{
-                        itemStatusElem.innerHTML = tarteaucitron.lang.disallowed;
-                    }
+
                     tarteaucitron.state[key] = status;
                     tarteaucitron.cookie.create(key, status);
                     tarteaucitron.userInterface.color(key, status);
@@ -1001,12 +995,7 @@ var tarteaucitron = {
                     if (typeof tarteaucitronMagic === 'undefined' || tarteaucitronMagic.indexOf("_" + key + "_") < 0) { tarteaucitron.services[key].js(); }
                 }
             }
-            var itemStatusElem = document.getElementById('tacCurrentStatus'+key);
-            if(status == true){
-                itemStatusElem.innerHTML = tarteaucitron.lang.allowed;
-            }else{
-                itemStatusElem.innerHTML = tarteaucitron.lang.disallowed;
-            }
+
             tarteaucitron.state[key] = status;
             tarteaucitron.cookie.create(key, status);
             tarteaucitron.userInterface.color(key, status);
