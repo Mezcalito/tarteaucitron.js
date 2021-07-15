@@ -221,6 +221,7 @@ div#tarteaucitronServices {
     border-top: 0;
     height: auto;
     overflow: auto;
+    padding-bottom: 25px;
 }
 #tarteaucitronAlertSmall #tarteaucitronCookiesListContainer #tarteaucitronClosePanelCookie, #tarteaucitron #tarteaucitronClosePanel {
     background: #333;
