@@ -4,19 +4,21 @@ tarteaucitron.lang = {
     "adblock": "Hello! This site is transparent and lets you choose the 3rd party services you want to allow.",
     "adblock_call": "Please disable your adblocker to start customizing.",
     "reload": "Refresh the page",
-    
+
     "alertBigScroll": "By continuing to scroll,",
     "alertBigClick": "If you continue to browse this website,",
     "alertBig": "you are allowing all third-party services",
-    
-    "alertBigPrivacy": "This site uses cookies and gives you control over what you want to activate",
+
+    "alertBigPrivacyTitle": "This website uses cookies.",
+    "alertBigPrivacy": "This website may store or use its data for statistical purposes; or to track sales activity, manage partner relations, prevent fraud, conduct studies to optimise offerings and products, improve the user experience, or create a personal profile to customize content or advertising. You may change your mind at any time by changing your cookies settings.",
     "alertSmall": "Manage services",
     "personalize": "Personalize",
-    "acceptAll": "OK, accept all",
+    "acceptAll": "Accept and close",
+    "continue": "Continue without accepting",
     "close": "Close",
 
-    "privacyUrl": "Privacy policy",
-    
+    "privacyUrl": "Cookies policy",
+
     "all": "Preference for all services",
 
     "info": "Protecting your privacy",
@@ -40,11 +42,7 @@ tarteaucitron.lang = {
     "allowAll": "Allow all cookies",
     "denyAll": "Deny all cookies",
 
-    "icon": "Cookies",
-    
     "fallback": "is disabled.",
-    "allowed": "allowed",
-    "disallowed": "disallowed",
 
     "ads": {
         "title": "Advertising network",
@@ -78,7 +76,7 @@ tarteaucitron.lang = {
         "title": "Other",
         "details": "Services to display web content."
     },
-    
+
     "mandatoryTitle": "Mandatory cookies",
     "mandatoryText": "This site uses cookies necessary for its proper functioning which cannot be deactivated."
 };

@@ -5,18 +5,20 @@ tarteaucitron.lang = {
     "adblock": "Bonjour! Ce site joue la transparence et vous donne le choix des services tiers à activer.",
     "adblock_call": "Merci de désactiver votre adblocker pour commencer la personnalisation.",
     "reload": "Recharger la page",
-    
+
     "alertBigScroll": "En continuant de défiler,",
     "alertBigClick": "En poursuivant votre navigation,",
     "alertBig": "vous acceptez l'utilisation de services tiers pouvant installer des cookies",
-    
-    "alertBigPrivacy": "Ce site utilise des cookies et vous donne le contrôle sur ceux que vous souhaitez activer",
+
+    "alertBigPrivacyTitle": "Ce site utilise les cookies.",
+    "alertBigPrivacy": "Ce site peut stocker et/ou utiliser ses données à des fins statistiques, afin de gérer le suivi de l’activité commerciale, la relation avec ses partenaires et prévenir le risque de fraude, effectuer des études afin d’optimiser les offres et les produits, pour améliorer votre expérience, créer un profil personnalisé pour afficher un contenu ou des publicités personnalisées. Vous pouvez changer d’avis à tout moment en paramétrant vos cookies.",
     "alertSmall": "Gestion des services",
-    "acceptAll": "Tout accepter",
-    "personalize": "Personnaliser",
+    "acceptAll": "Accepter et fermer",
+    "continue": "Continuer sans accepter",
+    "personalize": "Paramétrer les cookies",
     "close": "Fermer",
 
-    "privacyUrl": "Politique de confidentialité",
+    "privacyUrl": "Politique de cookies.",
 
     "all": "Préférences pour tous les services",
 
@@ -38,14 +40,10 @@ tarteaucitron.lang = {
     "cookieDetail": "Détail des cookies",
     "ourSite": "sur notre site",
     "newWindow": "(nouvelle fenêtre)",
-    "allowAll": "Tout accepter",
-    "denyAll": "Tout refuser",
+    "allowAll": "Autoriser tous les cookies",
+    "denyAll": "Interdire tous les cookies",
 
-    "icon": "Cookies",
-    
     "fallback": "est désactivé.",
-    "allowed": "autorisé",
-    "disallowed": "interdit",
 
     "ads": {
         "title": "Régies publicitaires",
@@ -79,7 +77,7 @@ tarteaucitron.lang = {
         "title": "Autre",
         "details": "Services visant à afficher du contenu web."
     },
-    
+
     "mandatoryTitle": "Cookies obligatoires",
-    "mandatoryText": "Ce site utilise des cookies nécessaires à son bon fonctionnement. Ils ne peuvent pas être désactivés."
+    "mandatoryText": "Ce site utilise des cookies nécessaires à son bon fonctionnement qui ne peuvent pas être désactivés."
 };

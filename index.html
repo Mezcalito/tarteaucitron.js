@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Page Title</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <link rel="stylesheet" href="./css/tarteaucitron.css">
+        <script type="text/javascript" src="./tarteaucitron.js"></script>
+    </head>
+
+    <body>
+        <div class="">
+            <h1>This is a Heading</h1>
+            <p>This is a paragraph.</p>
+            <p>This is another paragraph.</p>
+        </div>
+
+        <script type="text/javascript">
+            /** Google Analytics */
+            tarteaucitron.user.gtagUa = 'UA-XXXXXXXX-X';
+            (tarteaucitron.job = tarteaucitron.job || []).push('gtag');
+
+            /** Global variables */
+            window.tarteaucitronExpireInDay = true;
+            window.tarteaucitronForceExpire = 90; // 3 months
+            window.tarteaucitronForceLanguage = 'fr';
+
+            /** Init TAC */
+            tarteaucitron.init({
+                privacyUrl: "https://www.cnil.fr/fr/rgpd-par-ou-commencer",
+
+                hashtag: '#tarteaucitron',
+                cookieName: 'GDPR_Website',
+
+                adblocker: false,
+                AcceptAllCta: true,
+                highPrivacy: true,
+                handleBrowserDNTRequest: true,
+
+                removeCredit: true,
+                moreInfoLink: true,
+                useExternalCss: true,
+                showIcon: false
+            });
+        </script>
+    </body>
+</html>
