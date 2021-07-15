@@ -32,6 +32,37 @@ tarteaucitron.services.iframe = {
     }
 };
 
+// pinterestpixel
+tarteaucitron.services.pinterestpixel = {
+    "key": "pinterestpixel",
+    "type": "ads",
+    "name": "Pinterest Pixel",
+    "uri": "https://help.pinterest.com/fr/business/article/track-conversions-with-pinterest-tag",
+    "needConsent": true,
+    "cookies": [ '_pinterest_sess', '_pinterest_ct', '_pinterest_ct_mw', '_pinterest_ct_rt', '_epik', '_derived_epik', '_pin_unauth', '_pinterest_ct_ua'],
+    "js": function () {
+        "use strict";
+
+        if (tarteaucitron.user.pinterestpixelId === undefined) {
+            return;
+        }
+
+        if(!window.pintrk) {
+            window.pintrk = function() {
+                window.pintrk.queue.push(Array.prototype.slice.call(arguments));
+            };
+
+            var n=window.pintrk;
+            n.queue=[];
+            n.version="3.0";
+
+            tarteaucitron.addScript('https://s.pinimg.com/ct/core.js', '', function() {
+                window.pintrk('load', tarteaucitron.user.pinterestpixelId);
+                window.pintrk('page');
+            });
+        }
+    }
+};
 
 // elfsight
 tarteaucitron.services.elfsight = {
@@ -1834,6 +1865,71 @@ tarteaucitron.services.gtag = {
             if (typeof tarteaucitron.user.gtagMore === 'function') {
                 tarteaucitron.user.gtagMore();
             }
+        });
+    }
+};
+
+tarteaucitron.services.firebase = {
+    "key": "firebase",
+    "type": "analytic",
+    "name": "Firebase",
+    "uri": "https://firebase.google.com/support/privacy",
+    "needConsent": true,
+    "cookies": [],
+    "js": function () {
+        "use strict";
+
+        if (tarteaucitron.user.firebaseApiKey === undefined) {
+            return;
+        }
+
+        tarteaucitron.addScript('https://www.gstatic.com/firebasejs/8.6.2/firebase-app.js', '', function() {
+            tarteaucitron.addScript('https://www.gstatic.com/firebasejs/8.6.2/firebase-analytics.js', '', function() {
+
+                var firebaseConfig = {
+                  apiKey: tarteaucitron.user.firebaseApiKey,
+                  authDomain: tarteaucitron.user.firebaseAuthDomain,
+                  databaseURL: tarteaucitron.user.firebaseDatabaseUrl,
+                  projectId: tarteaucitron.user.firebaseProjectId,
+                  storageBucket: tarteaucitron.user.firebaseStorageBucket,
+                  appId: tarteaucitron.user.firebaseAppId,
+                  measurementId: tarteaucitron.user.firebaseMeasurementId,
+                };
+                firebase.initializeApp(firebaseConfig);
+                firebase.analytics();
+            });
+        });
+    }
+};
+
+// genially
+tarteaucitron.services.genially = {
+    "key": "genially",
+    "type": "api",
+    "name": "genially",
+    "uri": "https://www.genial.ly/cookies",
+    "needConsent": true,
+    "cookies": ['_gat', '_ga', '_gid'],
+    "js": function () {
+        "use strict";
+
+        tarteaucitron.fallback(['tac_genially'], function (x) {
+            var frame_title = tarteaucitron.fixSelfXSS(x.getAttribute("title") || 'genially iframe'),
+                width = x.getAttribute("width"),
+                height = x.getAttribute("height"),
+                geniallyid = x.getAttribute("geniallyid"),
+                allowfullscreen= x.getAttribute("allowfullscreen");
+
+            return '<div style="position: relative; padding-bottom: 109.00%; padding-top: 0; height: 0;"><iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" title="' + frame_title + '" src="https://view.genial.ly/' + geniallyid + '" width="' + width + '" height="' + height + '" scrolling="auto" allowtransparency ' + (allowfullscreen == '0' ? '' : ' webkitallowfullscreen mozallowfullscreen allowfullscreen') + '></iframe></div>';
+        });
+    },
+    "fallback": function () {
+        "use strict";
+        var id = 'genially';
+        tarteaucitron.fallback(['tac_genially'], function (elem) {
+            elem.style.width = elem.getAttribute('width') + 'px';
+            elem.style.height = elem.getAttribute('height') + 'px';
+            return tarteaucitron.engage(id);
         });
     }
 };
@@ -4190,6 +4286,79 @@ tarteaucitron.services.ausha = {
         tarteaucitron.fallback(['ausha_player'], function (elem) {
             elem.style.height = elem.getAttribute('data-height') + 'px';
             return tarteaucitron.engage('ausha');
+        });
+    }
+};
+
+// visiblee
+tarteaucitron.services.visiblee = {
+    key: "visiblee",
+    type: "analytic",
+    name: "Visiblee",
+    uri: "http://confidentiality.visiblee.io/fr/confidentialite",
+    needConsent: true,
+    cookies: ["visitor_v2", tarteaucitron.user.visibleedomain, "check", "campaign_ref_"+tarteaucitron.user.visibleedomain, "reload_"+tarteaucitron.user.visibleedomain],
+    js: function () {
+        "use strict";
+
+        if (tarteaucitron.user.visibleeclientid === undefined) {
+            return;
+        }
+        tarteaucitron.addScript('//www.link-page.info/tracking_'+tarteaucitron.user.visibleeclientid+'.js', 'visiblee');
+    }
+};
+
+// bandcamp
+tarteaucitron.services.bandcamp = {
+    key: "bandcamp",
+    type: "video",
+    name: "Bandcamp",
+    uri: "https://bandcamp.com",
+    readmoreLink: "https://bandcamp.com/privacy",
+    needConsent: true,
+    cookies: ['client_id', 'BACKENDID', '_comm_playlist'],
+    js: function () {
+        "use strict";
+        tarteaucitron.fallback(['bandcamp_player'], function (x) {
+            var frame_title = tarteaucitron.fixSelfXSS(x.getAttribute("title") || 'Bandcamp iframe'),
+                album_id        = x.getAttribute("albumID"),
+                bandcamp_width  = x.getAttribute("width"),
+                frame_width     = 'width=',
+                bandcamp_height = x.getAttribute("height"),
+                frame_height    = 'height=',
+                attrs = ["size", "bgcol", "linkcol", "artwork", "minimal", "tracklist", "package", "transparent"],
+                params = attrs.filter(function (a) {
+                    return x.getAttribute(a) !== null;
+                }).map(function (a) {
+                    if (a && a.length > 0) return a + "=" + x.getAttribute(a);
+                }).join("/");
+
+                if (album_id === null) {
+                    return "";
+                }
+
+                if (bandcamp_width !== null || bandcamp_width !== "") {
+                    frame_width += '"' + bandcamp_width + '" ';
+                } else {
+                    frame_width += '"" ';
+                }
+                if (bandcamp_height !== null || bandcamp_height !== "") {
+                    frame_height += '"' + bandcamp_height + '" ';
+                } else {
+                    frame_height += '"" ';
+                }
+
+                var src = 'https://bandcamp.com/EmbeddedPlayer/album=' + album_id + '/' + params;
+
+                return '<iframe title="' + frame_title + '"' + frame_width + frame_height + 'src="' + src + '" frameborder="0" allowfullscreen seamless></iframe>';
+        });
+    },
+    fallback: function () {
+        "use strict";
+        tarteaucitron.fallback(['bandcamp_player'], function (elem) {
+            elem.style.width = elem.getAttribute('width');
+            elem.style.height = elem.getAttribute('height');
+            return tarteaucitron.engage('bandcamp');
         });
     }
 };
