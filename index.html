@@ -9,11 +9,7 @@
     </head>
 
     <body>
-        <div class="">
-            <h1>This is a Heading</h1>
-            <p>This is a paragraph.</p>
-            <p>This is another paragraph.</p>
-        </div>
+        <a href="javascript:void(0)" onclick="event.preventDefault(); tarteaucitron.userInterface.openPanel()">Manage cookies</a>
 
         <script type="text/javascript">
             /** Google Analytics */
@@ -28,19 +24,15 @@
             /** Init TAC */
             tarteaucitron.init({
                 privacyUrl: "https://www.cnil.fr/fr/rgpd-par-ou-commencer",
-
                 hashtag: '#tarteaucitron',
                 cookieName: 'GDPR_Website',
-
-                adblocker: false,
-                AcceptAllCta: true,
-                highPrivacy: true,
+                orientation: 'bottom',
                 handleBrowserDNTRequest: true,
-
+                mandatory: false,
                 removeCredit: true,
-                moreInfoLink: true,
+                moreInfoLink: false,
                 useExternalCss: true,
-                showIcon: false
+                showIcon: false,
             });
         </script>
     </body>
