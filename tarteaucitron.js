@@ -321,10 +321,9 @@ var tarteaucitron = {
                 html += '         <div id="tarteaucitronInfo">';
                 html += '         ' + tarteaucitron.lang.disclaimer;
                 if (tarteaucitron.parameters.privacyUrl !== "") {
-                    html += '   <br/><br/>';
-                    html += '   <button type="button" id="tarteaucitronPrivacyUrlDialog">';
+                    html += '   <a href="' + tarteaucitron.parameters.privacyUrl + '" type="button" id="tarteaucitronPrivacyUrlDialog">';
                     html += '       ' + tarteaucitron.lang.privacyUrl;
-                    html += '   </button>';
+                    html += '   </a>';
                 }
                 html += '         </div>';
                 html += '         <div class="tarteaucitronName">';
@@ -429,7 +428,7 @@ var tarteaucitron = {
                     }
 
                     if (tarteaucitron.parameters.privacyUrl !== "") {
-                        html += '   <a href="#" type="button" id="tarteaucitronPrivacyUrl">';
+                        html += '   <a href="' + tarteaucitron.parameters.privacyUrl + '" id="tarteaucitronPrivacyUrl">';
                         html += '       ' + tarteaucitron.lang.privacyUrl;
                         html += '   </a>';
                     }
@@ -678,12 +677,6 @@ var tarteaucitron = {
                     });
                     tarteaucitron.addClickEventToId("tarteaucitronClosePanelCookie", function () {
                         tarteaucitron.userInterface.closePanel();
-                    });
-                    tarteaucitron.addClickEventToId("tarteaucitronPrivacyUrl", function () {
-                        document.location = tarteaucitron.parameters.privacyUrl;
-                    });
-                    tarteaucitron.addClickEventToId("tarteaucitronPrivacyUrlDialog", function () {
-                        document.location = tarteaucitron.parameters.privacyUrl;
                     });
                     tarteaucitron.addClickEventToId("tarteaucitronCookiesNumber", function () {
                         tarteaucitron.userInterface.toggleCookiesList();

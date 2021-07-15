@@ -305,10 +305,6 @@ a.tarteaucitronSelfLink {
     top: 58px;
     padding: 10px;
 }
-#tarteaucitron #tarteaucitronInfo a {
-    color: #fff;
-    text-decoration: underline;
-}
 #tarteaucitron #tarteaucitronServices .tarteaucitronLine {
     background-color: #434343;
     margin: 0;
@@ -421,6 +417,9 @@ a.tarteaucitronSelfLink {
 }
 #tarteaucitron #tarteaucitronServices .tarteaucitronLine .tarteaucitronName .tarteaucitronListCookies {
     font-size: 14px;
+}
+#tarteaucitron #tarteaucitronServices .tarteaucitronLine .tarteaucitronName .tarteaucitronReadmoreInfo a {
+    color: #fff;
 }
 #tarteaucitron .tarteaucitronH3 {
     font-size: 18px;
@@ -584,7 +583,7 @@ a.tarteaucitronSelfLink {
     box-shadow: none;
     text-transform: none;
     text-decoration: underline;
-    font-size: 14px;
+    font-size: 16px;
     color: #333;
 }
 #tarteaucitronPercentage {
