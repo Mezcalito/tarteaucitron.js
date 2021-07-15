@@ -551,6 +551,7 @@ a.tarteaucitronSelfLink {
     text-decoration: underline;
     text-transform: none;
     padding: 0;
+    cursor: pointer;
 }
 @media screen and (max-width: 565px) {
     .tarteaucitronCTAButton {
