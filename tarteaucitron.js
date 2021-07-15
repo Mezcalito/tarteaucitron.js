@@ -439,7 +439,7 @@ var tarteaucitron = {
                     html += '       <button type="button" id="tarteaucitronCloseAlert" onclick="tarteaucitron.userInterface.openPanel();">';
                     html += '           ' + tarteaucitron.lang.personalize;
                     html += '       </button>';
-                    html += '       <button type="button" id="tarteaucitronPersonalize" onclick="tarteaucitron.userInterface.respondAll(true);">';
+                    html += '       <button type="button" id="tarteaucitronPersonalize2" onclick="tarteaucitron.userInterface.respondAll(true);">';
                     html += '           ' + tarteaucitron.lang.acceptAll;
                     html += '       </button>';
                     html += '   </div>';

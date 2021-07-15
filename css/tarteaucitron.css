@@ -528,7 +528,7 @@ a.tarteaucitronSelfLink {
         margin-top: 30px;
     }
 }
-#tarteaucitronAlertBig #tarteaucitronCloseAlert, #tarteaucitronAlertBig #tarteaucitronPersonalize, #tarteaucitron #tarteaucitronPrivacyUrl {
+#tarteaucitronAlertBig #tarteaucitronCloseAlert, #tarteaucitronAlertBig #tarteaucitronPersonalize, #tarteaucitronAlertBig #tarteaucitronPersonalize2, #tarteaucitron #tarteaucitronPrivacyUrl {
     background: #191919;
     border-radius: 4px;
     font-size: 16px;
@@ -541,7 +541,7 @@ a.tarteaucitronSelfLink {
     text-decoration: none;
 }
 @media screen and (max-width: 565px) {
-    #tarteaucitronAlertBig #tarteaucitronCloseAlert, #tarteaucitronAlertBig #tarteaucitronPersonalize, #tarteaucitron #tarteaucitronPrivacyUrl {
+    #tarteaucitronAlertBig #tarteaucitronCloseAlert, #tarteaucitronAlertBig #tarteaucitronPersonalize, #tarteaucitronAlertBig #tarteaucitronPersonalize2, #tarteaucitron #tarteaucitronPrivacyUrl {
         font-size: 14px;
         height: 41px;
     }
